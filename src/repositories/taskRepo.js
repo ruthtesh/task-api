@@ -4,6 +4,10 @@ export async function findAll() {
   return prisma.task.findMany();
 }
 
+export async function findAllCompleted(completed) {
+  return prisma.task.findMany({ where: {completed} });
+}
+
 // Create a new task
 export async function create(data) {
   return prisma.task.create({
